@@ -3,7 +3,7 @@ const { JWT } = require('google-auth-library');
 const axios = require('axios');
 
 // CONFIG
-const SPREADSHEET_ID = '1_9XA8nNj6DAaGVQxlHQ7ivcG5irhJExk269IAY3j2bM';
+const SPREADSHEET_ID = '1jP0yyjM89bizhwfgu_1WBs51ySloqrVnh5qiy9GjoqQ';
 const SHEET_NAME = 'กพ ปุณยวัจน์';
 const REDMINE_URL = 'https://redmine.ochi.link';
 const TARGET_ISSUE_ID = 6741;
