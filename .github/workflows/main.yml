@@ -1,0 +1,23 @@
+name: Redmine Automation Cron
+
+on:
+  schedule:
+    - cron: '0 11 * * *' # รันทุกวันเวลา 11:00 UTC (18:00 น. เวลาไทย)
+  workflow_dispatch: # ปุ่มกดรันเองแบบ Manual สำหรับทดสอบ
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '18'
+      - run: npm install
+      - name: Run Automate Script
+        env:
+          REDMINE_API_KEY: ${{ secrets.REDMINE_API_KEY }}
+          GOOGLE_SERVICE_ACCOUNT_EMAIL: ${{ secrets.GOOGLE_SERVICE_ACCOUNT_EMAIL }}
+          GOOGLE_PRIVATE_KEY: ${{ secrets.GOOGLE_PRIVATE_KEY }}
+        run: node index.js
